@@ -1,49 +1,93 @@
-<h1 align="center" id="title">Himsafar - Realtime Location Tracking App</h1>
+# NextBus
 
-<p align="center"><img src="https://socialify.git.ci/mohitsingh35/NextBus/image?language=1&amp;name=1&amp;owner=1&amp;theme=Light" alt="project-image"></p>
+> Production-grade realtime bus tracking app built with Jetpack Compose, Kotlin, and Firebase.
 
-<p id="description">Developed a location tracking app for the SIH Project used Jetpack compose XML Kotln and MVVM architecture pattern. Used a separate driver’s app which will send location coordinates every 5 seconds in background using foreground service Using Google Maps API to mark these coordinates and show bus route.</p>
+## 📱 Overview
 
-<h2>🚀 Demo</h2>
+NextBus is a modern transit companion app that lets users track buses in real time, search routes, compare travel options, and stay safe with SOS features. Built with a clean Compose-first architecture and Material 3 design system.
 
-[https://github.com/mohitsingh35/NextBus/releases/download/Test\_APK/app-debug.apk](https://github.com/mohitsingh35/NextBus/releases/download/Test_APK/app-debug.apk)
+## ✨ Features
 
-![Screenshot 1](https://github.com/mohitsingh35/NextBus/blob/master/himsafar%20images/Screenshot_2023-12-28-23-34-28-38_d0a15a589648c4bf34ad2f5e52ad3d18.jpg?raw=true) | ![Screenshot 2](https://github.com/mohitsingh35/NextBus/blob/master/himsafar%20images/Screenshot_2023-12-28-23-34-31-86_d0a15a589648c4bf34ad2f5e52ad3d18.jpg?raw=true) | ![Screenshot 3](https://github.com/mohitsingh35/NextBus/blob/master/himsafar%20images/Screenshot_2023-12-28-23-34-47-67_d0a15a589648c4bf34ad2f5e52ad3d18.jpg?raw=true) | ![Screenshot 4](https://github.com/mohitsingh35/NextBus/blob/master/himsafar%20images/Screenshot_2023-12-28-23-35-02-35_d0a15a589648c4bf34ad2f5e52ad3d18.jpg?raw=true)
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-Splash Screen | Home Screen | Search between stops | Active buses
+- **Live Tracking** — Smoothly animated bus markers with heading rotation and real-time ETA
+- **Smart Route Search** — Origin/destination input with current location auto-fill and swap animation
+- **Bus Comparison** — Compare buses by next departure, duration, fare, fuel type, and crowd level
+- **Favorites** — Save routes for 1-tap tracking from the home screen
+- **Travel History** — View past trips with route, distance, and duration
+- **SOS Safety** — Share live trip links with family and emergency contacts
+- **Bilingual** — Instant English/Hindi toggle without app restart
+- **Material 3 Design** — Dynamic theming, glassmorphism cards, micro-interactions
 
-![Screenshot 5](https://github.com/mohitsingh35/NextBus/blob/master/himsafar%20images/Screenshot_2023-12-28-23-35-10-49_d0a15a589648c4bf34ad2f5e52ad3d18.jpg?raw=true) | ![Screenshot 6](https://github.com/mohitsingh35/NextBus/blob/master/himsafar%20images/Screenshot_2023-12-28-23-35-16-13_d0a15a589648c4bf34ad2f5e52ad3d18.jpg?raw=true) | ![Screenshot 7](https://github.com/mohitsingh35/NextBus/blob/master/himsafar%20images/Screenshot_2023-12-28-23-35-33-25_d0a15a589648c4bf34ad2f5e52ad3d18.jpg?raw=true) | ![Screenshot 8](https://github.com/mohitsingh35/NextBus/blob/master/himsafar%20images/Screenshot_2023-12-28-23-35-39-55_d0a15a589648c4bf34ad2f5e52ad3d18.jpg?raw=true)
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-Bus Details | Bus Route | Search by bus number | Multi-Language (Hindi)
+## 🛠️ Tech Stack
 
+| Layer | Technology |
+|-------|------------|
+| UI | Jetpack Compose, Material 3 |
+| Language | Kotlin |
+| Navigation | Compose NavHost |
+| DI | Dagger Hilt |
+| Backend | Firebase Realtime Database |
+| Maps | Google Maps API + Maps Compose |
+| Images | Coil |
+| Architecture | MVVM + Clean Architecture |
 
+## 🚀 Getting Started
 
-  
-  
-<h2>🧐 Features</h2>
+### Prerequisites
 
-Here're some of the project's best features:
+- Android Studio Koala (2023.1.1) or newer
+- Java JDK 11 or 17
+- Android SDK API 24+
 
-*   Search bus by bus number
-*   Search between stations
-*   Search buses near you
+### Installation
 
-<h2>🛠️ Installation Steps:</h2>
+```bash
+# Clone the repository
+git clone https://github.com/Heisenberg300604/NextBus.git
 
-<p>1. Clone the repository.</p>
+# Open in Android Studio
+# File → Open → select the NextBus folder
 
-<p>2. Open the project in Android Studio.</p>
+# Sync Gradle and run on emulator/device
+```
 
-<p>3. Build and run the app on an Android device or emulator.</p>
+### Configuration
 
-  
-  
-<h2>💻 Built with</h2>
+1. Add your `google-services.json` to `app/`
+2. Set your Google Maps API key in `MapKey.kt`
+3. Sync project with Gradle files
+4. Build and run
 
-Technologies used in the project:
+## 📱 Screens
 
-*   Kotlin
-*   Jetpack Compose
-*   Firebase
-*   Google Maps API
-*   Dagger-Hilt
+| Home | Map Tracking | Profile |
+|------|--------------|---------|
+| Live nearby buses & smart search | Real-time bus tracking with ETA | User profile, history, SOS |
+
+## 🏗️ Architecture
+
+```
+app/src/main/java/com/ncs/nextbus/
+├── ui/
+│   ├── theme/          # Design tokens (Color, Type, Theme)
+│   ├── components/     # Reusable UI components
+│   ├── screens/        # Home, MapTracking, Profile
+│   └── navigation/     # Compose NavHost
+├── di/                 # Hilt modules
+├── repository/         # Data repositories
+└── MainActivity.kt     # Single-activity host
+```
+
+## 📄 Roadmap
+
+- [x] Phase 1: Design System & Single-Activity Compose
+- [x] Phase 2: Home Screen & Smart Route Search
+- [x] Phase 3: Live Map & Tracking Overhaul
+- [x] Phase 4: Profile, Favorites & Safety
+
+## 📄 License
+
+MIT License
+
+---
+
+Made with ❤️ for college transit.
