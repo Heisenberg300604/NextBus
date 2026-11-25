@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NextBus</string>
+    <string name="app_name" translatable="false">NextBus</string>
 
     <!-- Top-level destinations -->
     <string name="nav_home">Home</string>
@@ -8,4 +8,93 @@
     <string name="nav_profile">Profile</string>
 
     <string name="placeholder_coming_soon">This screen is being rebuilt.</string>
+
+    <!-- Common -->
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_back">Back</string>
+    <string name="action_close">Close</string>
+    <string name="state_loading">Loading</string>
+    <string name="state_retry">Try again</string>
+    <string name="error_title">Something went wrong</string>
+    <string name="error_generic">We couldn\'t load this right now. Please try again.</string>
+
+    <!-- Formatting -->
+    <string name="distance_meters">%1$d m</string>
+    <string name="distance_kilometers">%1$.1f km</string>
+    <string name="eta_now">Now</string>
+    <plurals name="eta_minutes">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="eta_hours_minutes">%1$d h %2$d min</string>
+    <string name="time_just_now">just now</string>
+    <plurals name="time_minutes_ago">
+        <item quantity="one">%d min ago</item>
+        <item quantity="other">%d min ago</item>
+    </plurals>
+    <plurals name="time_hours_ago">
+        <item quantity="one">%d hour ago</item>
+        <item quantity="other">%d hours ago</item>
+    </plurals>
+    <plurals name="time_days_ago">
+        <item quantity="one">%d day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
+    <string name="fare_rupees">₹%1$d</string>
+    <string name="towards_stop">towards %1$s</string>
+
+    <!-- Status -->
+    <string name="freshness_live">Live</string>
+    <string name="freshness_updated">Updated %1$s</string>
+    <string name="freshness_offline">Offline</string>
+    <string name="status_on_time">On time</string>
+    <plurals name="status_minutes_late">
+        <item quantity="one">%d min late</item>
+        <item quantity="other">%d min late</item>
+    </plurals>
+    <string name="fuel_electric">Electric</string>
+    <string name="fuel_cng">CNG</string>
+    <string name="fuel_diesel">Diesel</string>
+    <string name="cd_route_number">Route %1$s</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Your city\'s buses, live</string>
+    <string name="onboarding_subtitle">See where every bus is right now and exactly when it reaches your stop.</string>
+    <string name="onboarding_live_title">Live tracking</string>
+    <string name="onboarding_live_body">Watch buses move on the map with arrival times that update every second.</string>
+    <string name="onboarding_plan_title">Plan in seconds</string>
+    <string name="onboarding_plan_body">Choose where you are and where you\'re going to see direct buses, fares and next departures.</string>
+    <string name="onboarding_safe_title">Travel safer</string>
+    <string name="onboarding_safe_body">Share your live trip or reach emergency services in one tap.</string>
+    <string name="onboarding_location_note">Your location stays on this device. It\'s only used to find stops and buses near you.</string>
+    <string name="onboarding_allow_location">Use my location</string>
+    <string name="onboarding_skip">Not now</string>
+
+    <!-- Profile and settings -->
+    <string name="profile_default_name">Traveller</string>
+    <string name="profile_edit_name">Edit name</string>
+    <string name="profile_name_label">Your name</string>
+    <string name="profile_name_supporting">Shown on your profile and in SOS messages.</string>
+    <plurals name="profile_name_too_long">
+        <item quantity="one">Use %d character or fewer.</item>
+        <item quantity="other">Use %d characters or fewer.</item>
+    </plurals>
+    <string name="profile_local_only">Everything is stored on this device. No account needed.</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="settings_dynamic_color">Dynamic colour</string>
+    <string name="settings_dynamic_color_summary">Match app colours to your wallpaper</string>
+    <string name="settings_language">Language</string>
+    <string name="language_system">System default</string>
+    <string name="language_english" translatable="false">English</string>
+    <string name="language_hindi" translatable="false">हिन्दी</string>
+    <string name="settings_location">Location access</string>
+    <string name="settings_location_allowed">Allowed. Used to find nearby stops and buses.</string>
+    <string name="settings_location_denied">Not allowed. Tap to change.</string>
+    <string name="settings_about">About</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_demo_data">Routes, timetables and buses are sample data for Chandigarh, simulated live on your device. The map needs an internet connection; everything else works offline.</string>
 </resources>

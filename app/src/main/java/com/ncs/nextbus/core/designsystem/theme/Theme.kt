@@ -9,6 +9,8 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.platform.LocalContext
 
 private val LightColors: ColorScheme = lightColorScheme(
@@ -87,7 +89,7 @@ private val DarkColors: ColorScheme = darkColorScheme(
 
 /**
  * App theme. Brand colours are the default; Material You dynamic colour is opt-in
- * (exposed as a user setting in M2) and only available on Android 12+.
+ * (a user setting) and only available on Android 12+.
  */
 @Composable
 fun NextBusTheme(
@@ -104,10 +106,24 @@ fun NextBusTheme(
         else -> LightColors
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = NextBusTypography,
-        shapes = NextBusShapes,
-        content = content,
-    )
+    val extendedColors = if (darkTheme) DarkExtendedColors else LightExtendedColors
+
+    CompositionLocalProvider(LocalExtendedColors provides extendedColors) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = NextBusTypography,
+            shapes = NextBusShapes,
+            content = content,
+        )
+    }
 }
+
+/** Accessors for theme values beyond [MaterialTheme]. */
+object NextBusTheme {
+    val extendedColors: ExtendedColors
+        @Composable @ReadOnlyComposable
+        get() = LocalExtendedColors.current
+}
+
+/** Whether dynamic (wallpaper-based) colour is supported on this device. */
+val supportsDynamicColor: Boolean get() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S

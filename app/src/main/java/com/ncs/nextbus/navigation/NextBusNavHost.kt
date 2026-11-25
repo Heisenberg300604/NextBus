@@ -13,6 +13,7 @@ import com.ncs.nextbus.feature.saved.SavedScreen
 @Composable
 fun NextBusNavHost(
     navController: NavHostController,
+    onLocationPermissionChanged: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     NavHost(
@@ -23,6 +24,6 @@ fun NextBusNavHost(
         composable<HomeRoute> { HomeScreen() }
         composable<MapRoute> { MapScreen() }
         composable<SavedRoute> { SavedScreen() }
-        composable<ProfileRoute> { ProfileScreen() }
+        composable<ProfileRoute> { ProfileScreen(onLocationPermissionChanged = onLocationPermissionChanged) }
     }
 }

@@ -1,10 +1,90 @@
 <resources>
-    <string name="app_name">NextBus</string>
-
     <string name="nav_home">होम</string>
     <string name="nav_map">लाइव मैप</string>
     <string name="nav_saved">सहेजे गए</string>
     <string name="nav_profile">प्रोफ़ाइल</string>
 
     <string name="placeholder_coming_soon">यह स्क्रीन फिर से बनाई जा रही है।</string>
+
+    <string name="action_save">सहेजें</string>
+    <string name="action_cancel">रद्द करें</string>
+    <string name="action_back">वापस</string>
+    <string name="action_close">बंद करें</string>
+    <string name="state_loading">लोड हो रहा है</string>
+    <string name="state_retry">फिर से कोशिश करें</string>
+    <string name="error_title">कुछ गलत हो गया</string>
+    <string name="error_generic">अभी इसे लोड नहीं कर सके। कृपया फिर से कोशिश करें।</string>
+
+    <string name="distance_meters">%1$d मी</string>
+    <string name="distance_kilometers">%1$.1f किमी</string>
+    <string name="eta_now">अभी</string>
+    <plurals name="eta_minutes">
+        <item quantity="one">%d मिनट</item>
+        <item quantity="other">%d मिनट</item>
+    </plurals>
+    <string name="eta_hours_minutes">%1$d घं %2$d मिनट</string>
+    <string name="time_just_now">अभी-अभी</string>
+    <plurals name="time_minutes_ago">
+        <item quantity="one">%d मिनट पहले</item>
+        <item quantity="other">%d मिनट पहले</item>
+    </plurals>
+    <plurals name="time_hours_ago">
+        <item quantity="one">%d घंटा पहले</item>
+        <item quantity="other">%d घंटे पहले</item>
+    </plurals>
+    <plurals name="time_days_ago">
+        <item quantity="one">%d दिन पहले</item>
+        <item quantity="other">%d दिन पहले</item>
+    </plurals>
+    <string name="fare_rupees">₹%1$d</string>
+    <string name="towards_stop">%1$s की ओर</string>
+
+    <string name="freshness_live">लाइव</string>
+    <string name="freshness_updated">%1$s अपडेट हुआ</string>
+    <string name="freshness_offline">ऑफ़लाइन</string>
+    <string name="status_on_time">समय पर</string>
+    <plurals name="status_minutes_late">
+        <item quantity="one">%d मिनट देर</item>
+        <item quantity="other">%d मिनट देर</item>
+    </plurals>
+    <string name="fuel_electric">इलेक्ट्रिक</string>
+    <string name="fuel_cng">सीएनजी</string>
+    <string name="fuel_diesel">डीज़ल</string>
+    <string name="cd_route_number">रूट %1$s</string>
+
+    <string name="onboarding_title">आपके शहर की बसें, लाइव</string>
+    <string name="onboarding_subtitle">देखें कि हर बस अभी कहाँ है और आपके स्टॉप पर कब पहुँचेगी।</string>
+    <string name="onboarding_live_title">लाइव ट्रैकिंग</string>
+    <string name="onboarding_live_body">मैप पर बसों को चलते देखें, आगमन समय हर सेकंड अपडेट होता है।</string>
+    <string name="onboarding_plan_title">सेकंडों में योजना</string>
+    <string name="onboarding_plan_body">चुनें कि आप कहाँ हैं और कहाँ जाना है, सीधी बसें, किराया और अगली रवानगी देखें।</string>
+    <string name="onboarding_safe_title">सुरक्षित यात्रा</string>
+    <string name="onboarding_safe_body">एक टैप में अपनी लाइव यात्रा साझा करें या आपातकालीन सेवाओं से संपर्क करें।</string>
+    <string name="onboarding_location_note">आपकी लोकेशन इसी डिवाइस पर रहती है। इसका उपयोग केवल आस-पास के स्टॉप और बसें खोजने के लिए होता है।</string>
+    <string name="onboarding_allow_location">मेरी लोकेशन इस्तेमाल करें</string>
+    <string name="onboarding_skip">अभी नहीं</string>
+
+    <string name="profile_default_name">यात्री</string>
+    <string name="profile_edit_name">नाम बदलें</string>
+    <string name="profile_name_label">आपका नाम</string>
+    <string name="profile_name_supporting">आपकी प्रोफ़ाइल और SOS संदेशों में दिखाया जाता है।</string>
+    <plurals name="profile_name_too_long">
+        <item quantity="one">%d या उससे कम अक्षर इस्तेमाल करें।</item>
+        <item quantity="other">%d या उससे कम अक्षर इस्तेमाल करें।</item>
+    </plurals>
+    <string name="profile_local_only">सब कुछ इसी डिवाइस पर सहेजा जाता है। किसी खाते की ज़रूरत नहीं।</string>
+    <string name="settings_appearance">दिखावट</string>
+    <string name="theme_system">सिस्टम</string>
+    <string name="theme_light">लाइट</string>
+    <string name="theme_dark">डार्क</string>
+    <string name="settings_dynamic_color">डायनेमिक रंग</string>
+    <string name="settings_dynamic_color_summary">ऐप के रंग आपके वॉलपेपर से मिलाएँ</string>
+    <string name="settings_language">भाषा</string>
+    <string name="language_system">सिस्टम डिफ़ॉल्ट</string>
+    <string name="settings_location">लोकेशन एक्सेस</string>
+    <string name="settings_location_allowed">अनुमति है। आस-पास के स्टॉप और बसें खोजने के लिए उपयोग होता है।</string>
+    <string name="settings_location_denied">अनुमति नहीं है। बदलने के लिए टैप करें।</string>
+    <string name="settings_about">जानकारी</string>
+    <string name="about_version">संस्करण %1$s</string>
+    <string name="about_demo_data">रूट, समय-सारणी और बसें चंडीगढ़ का नमूना डेटा हैं, जो आपके डिवाइस पर लाइव सिम्युलेट होते हैं। मैप के लिए इंटरनेट चाहिए; बाकी सब ऑफ़लाइन काम करता है।</string>
 </resources>

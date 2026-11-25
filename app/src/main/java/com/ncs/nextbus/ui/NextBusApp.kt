@@ -1,5 +1,7 @@
 package com.ncs.nextbus.ui
 
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -21,11 +23,16 @@ import com.ncs.nextbus.navigation.NextBusNavHost
 import com.ncs.nextbus.navigation.TopLevelDestination
 
 @Composable
-fun NextBusApp(navController: NavHostController = rememberNavController()) {
+fun NextBusApp(
+    onLocationPermissionChanged: () -> Unit,
+    navController: NavHostController = rememberNavController(),
+) {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = backStackEntry?.destination
 
     Scaffold(
+        // Screens draw their own top bars; only the bottom bar's space is reserved here.
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
         bottomBar = {
             NavigationBar {
                 TopLevelDestination.entries.forEach { destination ->
@@ -47,7 +54,10 @@ fun NextBusApp(navController: NavHostController = rememberNavController()) {
     ) { innerPadding ->
         NextBusNavHost(
             navController = navController,
-            modifier = Modifier.padding(innerPadding),
+            onLocationPermissionChanged = onLocationPermissionChanged,
+            modifier = Modifier
+                .padding(innerPadding)
+                .consumeWindowInsets(innerPadding),
         )
     }
 }

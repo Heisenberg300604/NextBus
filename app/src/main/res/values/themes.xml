@@ -6,8 +6,9 @@
         <item name="android:windowBackground">@color/window_background</item>
     </style>
 
+    <!-- Branded splash: white bus mark on brand blue, in light and dark mode. -->
     <style name="Theme.NextBus.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/window_background</item>
+        <item name="windowSplashScreenBackground">@color/brand_primary</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
         <item name="postSplashScreenTheme">@style/Theme.NextBus</item>
     </style>

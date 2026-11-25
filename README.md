@@ -10,7 +10,7 @@ A bus tracking companion app for Android, built with Kotlin, Jetpack Compose and
 
 - [x] **M0 – Make it build:** modern toolchain, legacy XML/Fragment and Firebase code removed, Compose app shell with navigation
 - [x] **M1 – Data layer:** local-only Room + DataStore, seeded routes/stops/schedules, live bus simulator
-- [ ] **M2 – Design system & app shell:** theme, components, splash, permissions, settings
+- [x] **M2 – Design system & app shell:** theme, components, splash, permissions, settings
 - [ ] **M3 – Features:** home, search, live map & tracking, saved, SOS
 - [ ] **M4 – Polish:** motion, accessibility, Hindi strings, release hardening, docs
 
