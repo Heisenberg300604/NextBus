@@ -78,8 +78,8 @@ import com.ncs.nextbus.core.ui.rememberLocationPermissionRequest
 @Composable
 fun ProfileScreen(
     onLocationPermissionChanged: () -> Unit,
+    onOpenSos: () -> Unit,
     modifier: Modifier = Modifier,
-    extraSections: LazyListScope.() -> Unit = {},
     viewModel: ProfileViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
@@ -99,7 +99,13 @@ fun ProfileScreen(
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 item { ProfileHeader(current.preferences, onSaveName = viewModel::setDisplayName) }
-                extraSections()
+                item { StatsRow(current.stats) }
+                safetySection(
+                    contacts = current.preferences.emergencyContacts,
+                    onAdd = viewModel::addEmergencyContact,
+                    onRemove = viewModel::removeEmergencyContact,
+                    onOpenSos = onOpenSos,
+                )
                 settingsSections(
                     preferences = current.preferences,
                     onThemeMode = viewModel::setThemeMode,

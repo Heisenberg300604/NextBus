@@ -19,7 +19,9 @@ import kotlin.math.roundToInt
 @Composable
 fun formatDistance(meters: Double): String =
     if (meters < 1_000) {
-        stringResource(R.string.distance_meters, ((meters / 10).roundToInt() * 10).coerceAtLeast(10))
+        // Round to 10 m, but never show "0 m" for a real (non-zero) distance.
+        val rounded = (meters / 10).roundToInt() * 10
+        stringResource(R.string.distance_meters, if (meters > 0 && rounded == 0) 10 else rounded)
     } else {
         stringResource(R.string.distance_kilometers, meters / 1_000)
     }

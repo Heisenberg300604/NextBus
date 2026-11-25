@@ -15,6 +15,8 @@ import com.ncs.nextbus.core.common.SystemTimeSource
 import com.ncs.nextbus.core.common.TimeSource
 import com.ncs.nextbus.core.data.database.NextBusDatabase
 import com.ncs.nextbus.core.data.database.UserDataDao
+import com.ncs.nextbus.core.data.repository.AndroidConnectivityRepository
+import com.ncs.nextbus.core.data.repository.ConnectivityRepository
 import com.ncs.nextbus.core.data.repository.DataStorePreferencesRepository
 import com.ncs.nextbus.core.data.repository.FusedLocationRepository
 import com.ncs.nextbus.core.data.repository.LiveBusRepository
@@ -97,4 +99,7 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindLocationRepository(impl: FusedLocationRepository): LocationRepository
+
+    @Binds
+    abstract fun bindConnectivityRepository(impl: AndroidConnectivityRepository): ConnectivityRepository
 }
