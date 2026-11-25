@@ -1,93 +1,54 @@
 # NextBus
 
-> Production-grade realtime bus tracking app built with Jetpack Compose, Kotlin, and Firebase.
+A bus tracking companion app for Android, built with Kotlin, Jetpack Compose and Material 3.
 
-## 📱 Overview
+> **Status: under active rebuild (branch `revamp`).** The app is being rebuilt milestone by milestone.
+> The app shell and navigation are in place; screens are placeholders until their milestone lands.
+> This README is completed at the end of the revamp.
 
-NextBus is a modern transit companion app that lets users track buses in real time, search routes, compare travel options, and stay safe with SOS features. Built with a clean Compose-first architecture and Material 3 design system.
+## Revamp milestones
 
-## ✨ Features
+- [x] **M0 – Make it build:** modern toolchain, legacy XML/Fragment and Firebase code removed, Compose app shell with navigation
+- [ ] **M1 – Data layer:** local-only Room + DataStore, seeded routes/stops/schedules, live bus simulator
+- [ ] **M2 – Design system & app shell:** theme, components, splash, permissions, settings
+- [ ] **M3 – Features:** home, search, live map & tracking, saved, SOS
+- [ ] **M4 – Polish:** motion, accessibility, Hindi strings, release hardening, docs
 
-- **Live Tracking** — Smoothly animated bus markers with heading rotation and real-time ETA
-- **Smart Route Search** — Origin/destination input with current location auto-fill and swap animation
-- **Bus Comparison** — Compare buses by next departure, duration, fare, fuel type, and crowd level
-- **Favorites** — Save routes for 1-tap tracking from the home screen
-- **Travel History** — View past trips with route, distance, and duration
-- **SOS Safety** — Share live trip links with family and emergency contacts
-- **Bilingual** — Instant English/Hindi toggle without app restart
-- **Material 3 Design** — Dynamic theming, glassmorphism cards, micro-interactions
-
-## 🛠️ Tech Stack
+## Tech stack
 
 | Layer | Technology |
 |-------|------------|
 | UI | Jetpack Compose, Material 3 |
-| Language | Kotlin |
-| Navigation | Compose NavHost |
-| DI | Dagger Hilt |
-| Backend | Firebase Realtime Database |
-| Maps | Google Maps API + Maps Compose |
-| Images | Coil |
-| Architecture | MVVM + Clean Architecture |
+| Navigation | Navigation Compose (type-safe routes) |
+| DI | Hilt (KSP) |
+| Local data | Room, DataStore |
+| Maps | Google Maps SDK + Maps Compose |
+| Async | Kotlin Coroutines & Flow |
 
-## 🚀 Getting Started
+## Getting started
 
-### Prerequisites
+### Requirements
 
-- Android Studio Koala (2023.1.1) or newer
-- Java JDK 11 or 17
-- Android SDK API 24+
+- Android Studio with the Android SDK Platform 36
+- JDK 17 or newer to run Gradle (the Android Studio bundled JDK works)
 
-### Installation
+### Google Maps key (optional)
+
+The app builds and runs without a key; the live map then shows a setup hint instead of tiles.
+To enable map tiles, add your own Maps SDK for Android key to the git-ignored `local.properties`:
+
+```properties
+MAPS_API_KEY=your-key-here
+```
+
+Never commit API keys. Restrict the key to the package name `com.ncs.nextbus` (and `com.ncs.nextbus.debug`) and your signing certificate SHA-1 in Google Cloud Console.
+
+### Build and verify
 
 ```bash
-# Clone the repository
-git clone https://github.com/Heisenberg300604/NextBus.git
-
-# Open in Android Studio
-# File → Open → select the NextBus folder
-
-# Sync Gradle and run on emulator/device
+./gradlew assembleDebug testDebugUnitTest lintDebug
 ```
 
-### Configuration
-
-1. Add your `google-services.json` to `app/`
-2. Set your Google Maps API key in `MapKey.kt`
-3. Sync project with Gradle files
-4. Build and run
-
-## 📱 Screens
-
-| Home | Map Tracking | Profile |
-|------|--------------|---------|
-| Live nearby buses & smart search | Real-time bus tracking with ETA | User profile, history, SOS |
-
-## 🏗️ Architecture
-
-```
-app/src/main/java/com/ncs/nextbus/
-├── ui/
-│   ├── theme/          # Design tokens (Color, Type, Theme)
-│   ├── components/     # Reusable UI components
-│   ├── screens/        # Home, MapTracking, Profile
-│   └── navigation/     # Compose NavHost
-├── di/                 # Hilt modules
-├── repository/         # Data repositories
-└── MainActivity.kt     # Single-activity host
-```
-
-## 📄 Roadmap
-
-- [x] Phase 1: Design System & Single-Activity Compose
-- [x] Phase 2: Home Screen & Smart Route Search
-- [x] Phase 3: Live Map & Tracking Overhaul
-- [x] Phase 4: Profile, Favorites & Safety
-
-## 📄 License
+## License
 
 MIT License
-
----
-
-Made with ❤️ for college transit.
