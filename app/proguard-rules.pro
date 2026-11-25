@@ -1,21 +1,15 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
+# NextBus R8 rules.
 #
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# Most libraries ship their own consumer rules (Room, Hilt, DataStore, kotlinx.serialization,
+# Navigation, Maps Compose), so very little is needed here.
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Keep source file and line numbers so release stack traces stay readable;
+# rename the source file attribute so file names are not exposed.
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Enums persisted by name (Room columns, DataStore, navigation arguments) are restored with valueOf().
+-keepclassmembers enum com.ncs.nextbus.** {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}

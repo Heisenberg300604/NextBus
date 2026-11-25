@@ -129,7 +129,9 @@ private fun FavoritesTab(
                             Icon(Icons.Outlined.Delete, contentDescription = stringResource(R.string.route_unfavorite))
                         }
                     },
-                    modifier = Modifier.clickable(role = Role.Button) { onRouteClick(route.id) },
+                    modifier = Modifier
+                        .animateItem()
+                        .clickable(role = Role.Button) { onRouteClick(route.id) },
                 )
             }
         }
@@ -144,7 +146,9 @@ private fun FavoritesTab(
                             Icon(Icons.Outlined.Delete, contentDescription = stringResource(R.string.search_unsave_journey))
                         }
                     },
-                    modifier = Modifier.clickable(role = Role.Button) { onJourneyClick(journey.from.id, journey.to.id) },
+                    modifier = Modifier
+                        .animateItem()
+                        .clickable(role = Role.Button) { onJourneyClick(journey.from.id, journey.to.id) },
                 )
             }
         }
@@ -218,7 +222,12 @@ private fun TripsTab(content: SavedContent, viewModel: SavedViewModel, onBusClic
                 )
             }
             items(content.pastTrips, key = { it.id }) { trip ->
-                PastTripRow(trip, content.colorOf(trip.routeId), onDelete = { viewModel.deleteTrip(trip.id) })
+                PastTripRow(
+                    trip = trip,
+                    routeColor = content.colorOf(trip.routeId),
+                    onDelete = { viewModel.deleteTrip(trip.id) },
+                    modifier = Modifier.animateItem(),
+                )
             }
         }
     }
@@ -239,7 +248,7 @@ private fun TripsTab(content: SavedContent, viewModel: SavedViewModel, onBusClic
 }
 
 @Composable
-private fun PastTripRow(trip: Trip, routeColor: Long, onDelete: () -> Unit) {
+private fun PastTripRow(trip: Trip, routeColor: Long, onDelete: () -> Unit, modifier: Modifier = Modifier) {
     val context = LocalContext.current
     val minutes = trip.endedAtMillis?.let { ((it - trip.startedAtMillis) / 60_000).toInt().coerceAtLeast(1) } ?: 0
     ListItem(
@@ -259,5 +268,6 @@ private fun PastTripRow(trip: Trip, routeColor: Long, onDelete: () -> Unit) {
                 Icon(Icons.Outlined.Delete, contentDescription = stringResource(R.string.saved_delete_trip))
             }
         },
+        modifier = modifier,
     )
 }

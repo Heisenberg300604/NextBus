@@ -213,6 +213,7 @@ private fun RouteDetailBody(
                 trailingPrimary = bus.etaToNextStopSeconds()?.let { formatEta(it) } ?: "",
                 trailingSecondary = stringResource(R.string.bus_to_next_stop),
                 onClick = { onBusClick(bus.bus.id) },
+                modifier = Modifier.animateItem(),
             )
         }
     }

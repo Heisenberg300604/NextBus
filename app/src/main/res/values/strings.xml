@@ -261,4 +261,8 @@
         <item quantity="one">%d direct route</item>
         <item quantity="other">%d direct routes</item>
     </plurals>
+    <plurals name="bus_show_passed_stops">
+        <item quantity="one">Show %d earlier stop</item>
+        <item quantity="other">Show %d earlier stops</item>
+    </plurals>
 </resources>

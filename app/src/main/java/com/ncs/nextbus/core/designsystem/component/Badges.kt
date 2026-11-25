@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
@@ -57,7 +58,7 @@ fun RouteBadge(
             .defaultMinSize(minWidth = if (large) 56.dp else 44.dp)
             .background(background, MaterialTheme.shapes.small)
             .padding(horizontal = Spacing.sm, vertical = if (large) Spacing.sm else Spacing.xs)
-            .semantics { contentDescription = description },
+            .clearAndSetSemantics { contentDescription = description },
         contentAlignment = Alignment.Center,
     ) {
         Text(

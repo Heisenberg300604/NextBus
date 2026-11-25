@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
@@ -183,6 +183,8 @@ private fun BusDetailBody(
     onOpenSos: () -> Unit,
 ) {
     val now by rememberNow()
+    var showPassedStops by rememberSaveable { mutableStateOf(false) }
+    val onShowPassedStops = { showPassedStops = true }
     val bus = content.liveBus
     val freshness = Freshness.of(bus.lastUpdatedMillis, now)
     val context = LocalContext.current
@@ -224,15 +226,24 @@ private fun BusDetailBody(
         item { SectionHeader(stringResource(R.string.bus_stops_on_this_run)) }
         val order = if (bus.direction == Direction.OUTBOUND) bus.route.stops else bus.route.stops.reversed()
         val etas = bus.predictions.filter { it.direction == bus.direction }.associateBy { it.stopIndex }
-        itemsIndexed(order, key = { _, stop -> stop.stop.id }) { position, routeStop ->
-            val passed = if (bus.direction == Direction.OUTBOUND) routeStop.index < bus.nextStopIndex else routeStop.index > bus.nextStopIndex
-            val isNext = routeStop.index == bus.nextStopIndex
+        val nextPosition = order.indexOfFirst { it.index == bus.nextStopIndex }.coerceAtLeast(0)
+        if (nextPosition > 0 && !showPassedStops) {
+            item(key = "passed") {
+                TextButton(
+                    onClick = onShowPassedStops,
+                    modifier = Modifier.padding(horizontal = Spacing.sm),
+                ) { Text(pluralStringResource(R.plurals.bus_show_passed_stops, nextPosition, nextPosition)) }
+            }
+        }
+        val visible = if (showPassedStops) order.withIndex().toList() else order.withIndex().drop(nextPosition)
+        items(visible, key = { it.value.stop.id }) { (position, routeStop) ->
+            val passed = position < nextPosition
             val eta = etas[routeStop.index]?.etaSeconds
             TimelineRow(
                 title = routeStop.stop.name,
                 state = when {
                     passed -> TimelineState.PASSED
-                    isNext -> TimelineState.CURRENT
+                    position == nextPosition -> TimelineState.CURRENT
                     else -> TimelineState.UPCOMING
                 },
                 lineColor = Color(bus.route.colorArgb),
@@ -241,6 +252,7 @@ private fun BusDetailBody(
                 subtitle = if (!passed && eta != null) formatClockTime(context, now + eta * 1000L) else null,
                 trailing = if (!passed && eta != null) formatEta(eta) else null,
                 onClick = { onStopClick(routeStop.stop.id) },
+                modifier = Modifier.animateItem(),
             )
         }
         item {

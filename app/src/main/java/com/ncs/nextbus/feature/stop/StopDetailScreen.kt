@@ -127,7 +127,9 @@ fun StopDetailScreen(
                                 Text(formatClockTime(context, now + arrival.etaSeconds * 1000L), style = MaterialTheme.typography.labelSmall)
                             }
                         },
-                        modifier = Modifier.clickable(role = Role.Button) { onBusClick(arrival.liveBus.bus.id) },
+                        modifier = Modifier
+                            .animateItem()
+                            .clickable(role = Role.Button) { onBusClick(arrival.liveBus.bus.id) },
                     )
                 }
             }

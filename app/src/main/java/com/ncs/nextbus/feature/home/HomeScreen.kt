@@ -226,6 +226,7 @@ private fun HomeContentList(
                 trailingPrimary = formatDistance(nearby.distanceMeters),
                 trailingSecondary = stringResource(R.string.home_distance_away),
                 onClick = { onBusClick(nearby.liveBus.bus.id) },
+                modifier = Modifier.animateItem(),
             )
         }
     }

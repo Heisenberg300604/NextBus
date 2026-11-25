@@ -34,7 +34,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.maps.android.compose.CameraPositionState
@@ -226,6 +225,3 @@ fun MapUnavailable(modifier: Modifier = Modifier, fillHeight: Boolean = true) {
         }
     }
 }
-
-/** Convenience for screens that only need a LatLng from a domain point. */
-fun LiveBus.latLng(): LatLng = position.toLatLng()

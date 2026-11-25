@@ -251,4 +251,8 @@
         <item quantity="one">%d सीधा रूट</item>
         <item quantity="other">%d सीधे रूट</item>
     </plurals>
+    <plurals name="bus_show_passed_stops">
+        <item quantity="one">%d पिछला स्टॉप दिखाएँ</item>
+        <item quantity="other">%d पिछले स्टॉप दिखाएँ</item>
+    </plurals>
 </resources>
